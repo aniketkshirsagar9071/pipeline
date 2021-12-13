@@ -1,0 +1,40 @@
+pipeline{
+    agent any
+    stages{
+        stage("Test"){
+            steps{
+                echo "this is test stage"
+            }
+            
+        }
+        stage("Build"){
+            steps{
+                echo "This is build stage"
+            }
+            
+        }
+        stage("test-on-deploy"){
+            steps{
+                echo "This is test-on-deploy"
+            }
+            
+        }
+        stage("test-on-prod"){
+            steps{
+                echo "this is test-on-prod"
+            }
+            
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
